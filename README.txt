@@ -20,7 +20,7 @@ The education level of an entry can optionally be shown as a content block withi
 
 [Checkout the screenshots.](http://connections-pro.com/add-on/education-level/)
 
-Here are a couple other great extensions that enhance your expirence with the Connections Business Directory:
+Here are other great extensions that enhance your expirence with the Connections Business Directory:
 
 * [Business Hours](http://wordpress.org/plugins/connections-business-directory-hours/)
 * [Toolbar](http://wordpress.org/plugins/connections-toolbar/)
