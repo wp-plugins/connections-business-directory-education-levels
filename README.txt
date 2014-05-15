@@ -14,7 +14,7 @@ Adds the ability to add an education level to an entry.
 
 This is an extension plugin for the [Connections Business Directory Plugin](http://wordpress.org/plugins/connections/) please be sure to install and active it before adding this plugin.
 
-What does this plugin do? It adds the ability to add a education level to entries. The education levels are those that are recognized by the (US Census Bureau)[http://www.census.gov/hhes/socdemo/education/data/cps/2013/tables.html]. A filter has been provided to allow the choices of education levels to be adjusted to suit your needs.
+What does this plugin do? It adds the ability to add a education level to entries. The education levels are those that are recognized by the [US Census Bureau](http://www.census.gov/hhes/socdemo/education/data/cps/2013/tables.html). A filter has been provided to allow the choices of education levels to be adjusted to suit your needs.
 
 The education level of an entry can optionally be shown as a content block within a template or with the supplied widget.
 
