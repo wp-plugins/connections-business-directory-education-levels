@@ -101,7 +101,7 @@ class CN_Education_Levels_Widget extends WP_Widget {
 			$metadata = $entry->getMeta( array( 'key' => 'education_level', 'single' => TRUE ) );
 
 			// If there is no meta; bail.
-			if ( empty( $metadata ) ) return;
+			if ( $metadata == '-1' ) return;
 
 			// Extract $before_widget, $after_widget, $before_title and $after_title.
 			extract( $args );
