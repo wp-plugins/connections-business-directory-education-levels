@@ -4,7 +4,7 @@ Donate link: http://connections-pro.com/
 Tags: addresses, address book, addressbook, bio, bios, biographies, business, businesses, business directory, business-directory, business directory plugin, directory plugin, directory widget, church, contact, contacts, connect, connections, directory, directories, hcalendar, hcard, ical, icalendar, image, images, list, lists, listings, member directory, members directory, members directories, microformat, microformats, page, pages, people, profile, profiles, post, posts, plugin, shortcode, staff, user, users, vcard, wordpress business directory, wordpress directory, wordpress directory plugin, wordpress business directory, education, education level, education levels, widget
 Requires at least: 3.5
 Tested up to: 3.9
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,6 +25,7 @@ Here are other great extensions that enhance your expirence with the Connections
 * [Business Hours](http://wordpress.org/plugins/connections-business-directory-hours/)
 * [Toolbar](http://wordpress.org/plugins/connections-toolbar/)
 * [Income Levels](http://wordpress.org/plugins/connections-business-directory-income-levels/)
+* [Login](http://wordpress.org/plugins/connections-business-directory-login/)
 
 == Installation ==
 
@@ -39,6 +40,9 @@ None yet....
 [Screenshots can be found here.](http://connections-pro.com/add-on/education-level/)
 
 == Changelog ==
+
+= 1.0.2 08/19/2014 =
+* BUG: Do not display "Choose..." in the entry content when no level was chosen for the entry.
 
 = 1.0.1 05/21/2014 =
 * TWEAK: Add default option "Choose...".
