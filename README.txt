@@ -29,7 +29,30 @@ Here are other great extensions that enhance your expirence with the Connections
 
 == Installation ==
 
-Extract the zip file and just drop the contents in the wp-content/plugins/ directory of your WordPress installation and then activate the Plugin from Plugins page.
+= Using the WordPress Plugin Search =
+
+1. Navigate to the `Add New` sub-page under the Plugins admin page.
+2. Search for `connections business directory education level`.
+3. The plugin should be listed first in the search results.
+4. Click the `Install Now` link.
+5. Lastly click the `Activate Plugin` link to activate the plugin.
+
+= Uploading in WordPress Admin =
+
+1. [Download the plugin zip file](http://wordpress.org/plugins/connections-business-directory-education-levels/) and save it to your computer.
+2. Navigate to the `Add New` sub-page under the Plugins admin page.
+3. Click the `Upload` link.
+4. Select Connections Business Directory Education Level zip file from where you saved the zip file on your computer.
+5. Click the `Install Now` button.
+6. Lastly click the `Activate Plugin` link to activate the plugin.
+
+= Using FTP =
+
+1. [Download the plugin zip file](http://wordpress.org/plugins/connections-business-directory-education-levels/) and save it to your computer.
+2. Extract the Connections Business Directory Education Level zip file.
+3. Create a new directory named `connections-business-directory-education-levels` directory in the `../wp-content/plugins/` directory.
+4. Upload the files from the folder extracted in Step 2.
+4. Activate the plugin on the Plugins admin page.
 
 == Frequently Asked Questions ==
 
