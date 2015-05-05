@@ -13,7 +13,7 @@
  * Plugin Name:       Connections Education Levels
  * Plugin URI:        http://connections-pro.com
  * Description:       An extension for the Connections plugin which adds a metabox for education levels.
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            Steven A. Zahm
  * Author URI:        http://connections-pro.com
  * License:           GPL-2.0+
@@ -72,7 +72,7 @@ if ( ! class_exists('Connections_Education_Levels') ) {
 		 */
 		private static function defineConstants() {
 
-			define( 'CNEL_CURRENT_VERSION', '1.0.2' );
+			define( 'CNEL_CURRENT_VERSION', '1.0.3' );
 			define( 'CNEL_DIR_NAME', plugin_basename( dirname( __FILE__ ) ) );
 			define( 'CNEL_BASE_NAME', plugin_basename( __FILE__ ) );
 			define( 'CNEL_PATH', plugin_dir_path( __FILE__ ) );
@@ -122,7 +122,7 @@ if ( ! class_exists('Connections_Education_Levels') ) {
 			$textdomain = 'connections_education_levels';
 
 			// Filter for the plugin languages folder.
-			$languagesDirectory = apply_filters( 'connections_education_level_lang_dir', CNIL_DIR_NAME . '/languages/' );
+			$languagesDirectory = apply_filters( 'connections_education_level_lang_dir', CNEL_DIR_NAME . '/languages/' );
 
 			// The 'plugin_locale' filter is also used by default in load_plugin_textdomain().
 			$locale = apply_filters( 'plugin_locale', get_locale(), $textdomain );
