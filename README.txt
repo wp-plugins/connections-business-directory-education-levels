@@ -4,7 +4,7 @@ Donate link: http://connections-pro.com/
 Tags: addresses, address book, addressbook, bio, bios, biographies, business, businesses, business directory, business-directory, business directory plugin, directory plugin, directory widget, church, contact, contacts, connect, connections, directory, directories, hcalendar, hcard, ical, icalendar, image, images, list, lists, listings, member directory, members directory, members directories, microformat, microformats, page, pages, people, profile, profiles, post, posts, plugin, shortcode, staff, user, users, vcard, wordpress business directory, wordpress directory, wordpress directory plugin, wordpress business directory, education, education level, education levels, widget
 Requires at least: 3.8
 Tested up to: 4.2
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,6 +64,15 @@ None yet....
 [Screenshots can be found here.](http://connections-pro.com/add-on/education-level/)
 
 == Changelog ==
+
+= 1.0.4 05/26/2015 =
+* BUG: Correct loading of translation files so they are used.
+* BUG: Add missing text domains to a couple strings.
+* BUG: Correct error notice text when Connections is not installed.
+* TWEAK: Update logic which loads the translations.
+* I18N: Update POT file.
+* I18N: Include Swedish translation.
+* DEV: Update .gitignore file.
 
 = 1.0.3 05/05/2015 =
 * BUG: Correct filter path for the languages filter.

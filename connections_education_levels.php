@@ -13,7 +13,7 @@
  * Plugin Name:       Connections Education Levels
  * Plugin URI:        http://connections-pro.com
  * Description:       An extension for the Connections plugin which adds a metabox for education levels.
- * Version:           1.0.3
+ * Version:           1.0.4
  * Author:            Steven A. Zahm
  * Author URI:        http://connections-pro.com
  * License:           GPL-2.0+
@@ -39,14 +39,9 @@ if ( ! class_exists('Connections_Education_Levels') ) {
 			// register_activation_hook( CNIL_BASE_NAME . '/connections_education_levels.php', array( __CLASS__, 'activate' ) );
 			// register_deactivation_hook( CNIL_BASE_NAME . '/connections_education_levels.php', array( __CLASS__, 'deactivate' ) );
 
-			/*
-			 * Load translation. NOTE: This should be ran on the init action hook because
-			 * function calls for translatable strings, like __() or _e(), execute before
-			 * the language files are loaded will not be loaded.
-			 *
-			 * NOTE: Any portion of the plugin w/ translatable strings should be bound to the init action hook or later.
-			 */
-			add_action( 'init', array( __CLASS__ , 'loadTextdomain' ) );
+			// This should run on the `plugins_loaded` action hook. Since the extension loads on the
+			// `plugins_loaded action hook, call immediately.
+			self::loadTextdomain();
 
 			// Register the metabox and fields.
 			add_action( 'cn_metabox', array( __CLASS__, 'registerMetabox') );
@@ -72,7 +67,7 @@ if ( ! class_exists('Connections_Education_Levels') ) {
 		 */
 		private static function defineConstants() {
 
-			define( 'CNEL_CURRENT_VERSION', '1.0.3' );
+			define( 'CNEL_CURRENT_VERSION', '1.0.4' );
 			define( 'CNEL_DIR_NAME', plugin_basename( dirname( __FILE__ ) ) );
 			define( 'CNEL_BASE_NAME', plugin_basename( __FILE__ ) );
 			define( 'CNEL_PATH', plugin_dir_path( __FILE__ ) );
@@ -110,34 +105,43 @@ if ( ! class_exists('Connections_Education_Levels') ) {
 		 * @access private
 		 * @since  1.0
 		 * @static
+		 *
 		 * @uses   apply_filters()
 		 * @uses   get_locale()
 		 * @uses   load_textdomain()
 		 * @uses   load_plugin_textdomain()
-		 * @return void
 		 */
 		public static function loadTextdomain() {
 
-			// Plugin's unique textdomain string.
-			$textdomain = 'connections_education_levels';
+			// Plugin textdomain. This should match the one set in the plugin header.
+			$domain = 'connections_education_levels';
 
-			// Filter for the plugin languages folder.
-			$languagesDirectory = apply_filters( 'connections_education_level_lang_dir', CNEL_DIR_NAME . '/languages/' );
+			// Set filter for plugin's languages directory
+			$languagesDirectory = apply_filters( "{$domain}_directory", CNEL_DIR_NAME . '/languages/' );
 
-			// The 'plugin_locale' filter is also used by default in load_plugin_textdomain().
-			$locale = apply_filters( 'plugin_locale', get_locale(), $textdomain );
+			// Traditional WordPress plugin locale filter
+			$locale   = apply_filters( 'plugin_locale', get_locale(), $domain );
+			$fileName = sprintf( '%1$s-%2$s.mo', $domain, $locale );
 
-			// Filter for WordPress languages directory.
-			$wpLanguagesDirectory = apply_filters(
-				'connections_education_level_wp_lang_dir',
-				WP_LANG_DIR . '/connections-education-level/' . sprintf( '%1$s-%2$s.mo', $textdomain, $locale )
-			);
+			// Setup paths to current locale file
+			$local  = $languagesDirectory . $fileName;
+			$global = WP_LANG_DIR . "/{$domain}/" . $fileName;
 
-			// Translations: First, look in WordPress' "languages" folder = custom & update-secure!
-			load_textdomain( $textdomain, $wpLanguagesDirectory );
+			if ( file_exists( $global ) ) {
 
-			// Translations: Secondly, look in plugin's "languages" folder = default.
-			load_plugin_textdomain( $textdomain, FALSE, $languagesDirectory );
+				// Look in global `../wp-content/languages/{$languagesDirectory}/` folder.
+				load_textdomain( $domain, $global );
+
+			} elseif ( file_exists( $local ) ) {
+
+				// Look in local `../wp-content/plugins/{plugin-directory}/languages/` folder.
+				load_textdomain( $domain, $local );
+
+			} else {
+
+				// Load the default language files
+				load_plugin_textdomain( $domain, false, $languagesDirectory );
+			}
 		}
 
 		/**
@@ -209,7 +213,7 @@ if ( ! class_exists('Connections_Education_Levels') ) {
 		public static function registerMetabox() {
 
 			$atts = array(
-				'name'     => 'Education Level',
+				'name'     => __( 'Education Level', 'connections_education_levels' ),
 				'id'       => 'education-level',
 				'title'    => __( 'Education Level', 'connections_education_levels' ),
 				'context'  => 'side',
@@ -238,7 +242,7 @@ if ( ! class_exists('Connections_Education_Levels') ) {
 		 */
 		public static function settingsOption( $blocks ) {
 
-			$blocks['education_level'] = 'Education Level';
+			$blocks['education_level'] = __( 'Education Level', 'connections_education_levels' );
 
 			return $blocks;
 		}
@@ -290,7 +294,7 @@ if ( ! class_exists('Connections_Education_Levels') ) {
 					'admin_notices',
 					 create_function(
 						 '',
-						'echo \'<div id="message" class="error"><p><strong>ERROR:</strong> Connections must be installed and active in order use Connections Income Levels.</p></div>\';'
+						'echo \'<div id="message" class="error"><p><strong>ERROR:</strong> Connections must be installed and active in order use Connections Education Level.</p></div>\';'
 						)
 				);
 
